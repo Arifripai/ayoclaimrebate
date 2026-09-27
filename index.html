@@ -31,6 +31,7 @@
                 </div>
             </div>
 
+            <!-- Teks Kontak Admin (Telah diperbaiki ke @OriginalMelvinn) -->
             <div class="bg-slate-700/50 rounded-xl p-4 mb-8 border border-slate-600 text-sm text-center">
                 Bagi yang sudah memiliki akun dan ingin berpindah mitra, silakan hubungi <a href="https://t.me/OriginalMelvinn" target="_blank" class="text-blue-400 font-bold hover:underline">@OriginalMelvinn</a>, akan dibantu hingga selesai.
             </div>
@@ -79,7 +80,7 @@
             
             // --- PENGATURAN BOT TELEGRAM ---
             const botToken = '7991708671:AAGsbcvArgiF-8ly4VqZYO3HfL66uxE5UDs'; 
-            const chatId = '1823219328'; // Chat ID sudah diperbarui
+            const chatId = '1823219328'; 
             // ---------------------------------------------
 
             // Mengambil nilai dari form
@@ -108,8 +109,8 @@
                         alertSuccess.classList.remove('hidden');
                         document.getElementById('rebateForm').reset();
                     } else {
-                        // Muncul jika ID salah atau bot belum di-start
-                        alert("Gagal mengirim pesan: " + data.description + "\n(Pastikan Anda sudah klik START di bot tersebut)");
+                        // Alert telah diperbarui
+                        alert("Gagal mengirim pesan: " + data.description + "\n(Pastikan akun @OriginalMelvinn sudah klik START di bot tersebut)");
                     }
                 })
                 .catch(error => {
