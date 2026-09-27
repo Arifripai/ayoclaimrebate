@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Rebate Melvin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 min-h-screen text-slate-200 font-sans antialiased py-10 px-4 flex justify-center items-center">
+
+    <div class="max-w-md w-full bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
+        
+        <!-- Header Section -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-center">
+            <h1 class="text-2xl font-bold text-white tracking-wide uppercase">Claim Rebate Melvin</h1>
+            <p class="text-blue-100 text-sm mt-2 font-medium">Jangan Sia Siakan Rebate Kalian, Claim Sekarang Bro!</p>
+        </div>
+
+        <div class="p-6">
+            <!-- Broker Registration Section -->
+            <div class="mb-8">
+                <p class="text-sm text-center mb-4 text-slate-400">Bagi yang belum memiliki broker, silakan daftar terlebih dahulu di bawah:</p>
+                <div class="space-y-3">
+                    <a href="https://one.exnessonelink.com/boarding/sign-up/a/l2k5lrudb5" target="_blank" class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold py-3 px-4 rounded-xl transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-chart-line mr-2"></i> Daftar Broker EXNESS
+                    </a>
+                    <a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=30518468" target="_blank" class="flex items-center justify-center w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-lg">
+                        <i class="fa-solid fa-arrow-trend-up mr-2"></i> Daftar Broker HFM
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-slate-700/50 rounded-xl p-4 mb-8 border border-slate-600 text-sm text-center">
+                Bagi yang sudah memiliki akun dan ingin berpindah mitra, silakan hubungi <a href="https://t.me/OriginalMelvinn" target="_blank" class="text-blue-400 font-bold hover:underline">@OriginalMelvinn</a>, akan dibantu hingga selesai.
+            </div>
+
+            <!-- Form Section -->
+            <div class="border-t border-slate-700 pt-6">
+                <h2 class="text-lg font-semibold text-white mb-4 text-center">Formulir Klaim Rebate</h2>
+                <p class="text-xs text-slate-400 text-center mb-6">Jika sudah mendaftar, silakan isi data di bawah ini:</p>
+                
+                <!-- Notifikasi Sukses -->
+                <div id="alertSuccess" class="hidden bg-green-500/20 border border-green-500 text-green-400 text-sm p-3 rounded-lg mb-4 text-center">
+                    <i class="fa-solid fa-circle-check mr-1"></i> Data berhasil dikirim ke Admin!
+                </div>
+
+                <form id="rebateForm" onsubmit="kirimTelegram(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Nama Lengkap</label>
+                        <input type="text" id="nama" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Username Telegram</label>
+                        <input type="text" id="telegram" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="@username">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">ID Account Trading</label>
+                        <input type="text" id="id_trading" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Contoh: 12345678">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Rebate Akan Dikirim Ke ID</label>
+                        <input type="text" id="id_rebate" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="ID wallet / Akun MT">
+                    </div>
+
+                    <button type="submit" id="btnSubmit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl transition duration-300 shadow-lg shadow-blue-900/50 mt-4 flex justify-center items-center">
+                        <i class="fa-brands fa-telegram mr-2 text-xl"></i> Kirim Data ke Admin
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Script to send form data to Telegram API In Background -->
+    <script>
+        function kirimTelegram(event) {
+            event.preventDefault(); 
+            
+            // --- PENGATURAN BOT TELEGRAM ---
+            const botToken = '7991708671:AAGsbcvArgiF-8ly4VqZYO3HfL66uxE5UDs'; 
+            const chatId = '1823219328'; // Chat ID sudah diperbarui
+            // ---------------------------------------------
+
+            // Mengambil nilai dari form
+            const nama = document.getElementById('nama').value;
+            const telegram = document.getElementById('telegram').value;
+            const id_trading = document.getElementById('id_trading').value;
+            const id_rebate = document.getElementById('id_rebate').value;
+
+            // Format pesan
+            const text = `*FORM KLAIM REBATE BARU*%0A%0ANama: ${nama}%0AUsername Telegram: ${telegram}%0AId Acount Trading: ${id_trading}%0ARebate Dikirim Ke Id: ${id_rebate}`;
+
+            // Ubah tombol jadi loading
+            const btnSubmit = document.getElementById('btnSubmit');
+            const alertSuccess = document.getElementById('alertSuccess');
+            btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2 text-xl"></i> Mengirim...';
+            btnSubmit.disabled = true;
+
+            // URL API Telegram
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=Markdown`;
+
+            // Proses kirim di latar belakang
+            fetch(url, { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alertSuccess.classList.remove('hidden');
+                        document.getElementById('rebateForm').reset();
+                    } else {
+                        // Muncul jika ID salah atau bot belum di-start
+                        alert("Gagal mengirim pesan: " + data.description + "\n(Pastikan Anda sudah klik START di bot tersebut)");
+                    }
+                })
+                .catch(error => {
+                    alert("Terjadi kesalahan jaringan.");
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    btnSubmit.innerHTML = '<i class="fa-brands fa-telegram mr-2 text-xl"></i> Kirim Data ke Admin';
+                    btnSubmit.disabled = false;
+                    
+                    setTimeout(() => {
+                        alertSuccess.classList.add('hidden');
+                    }, 5000);
+                });
+        }
+    </script>
+</body>
+</html>
