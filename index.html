@@ -3,139 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claim Rebate Melvin</title>
+    <title>Melvin Trader Gold - Claim Rebate</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body class="bg-slate-900 min-h-screen text-slate-200 font-sans antialiased py-10 px-4 flex justify-center items-center">
-
-    <div class="max-w-md w-full bg-slate-800 rounded-2xl shadow-2xl overflow-hidden border border-slate-700">
-        
-        <!-- Header Section -->
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-center">
-            <h1 class="text-2xl font-bold text-white tracking-wide uppercase">Claim Rebate Melvin</h1>
-            <p class="text-blue-100 text-sm mt-2 font-medium">Jangan Sia Siakan Rebate Kalian Claim Sekarang Bro</p>
-        </div>
-
-        <div class="p-6">
-            <!-- Broker Registration Section -->
-            <div class="mb-8">
-                <p class="text-sm text-center mb-4 text-slate-400">Bagi yang belum memiliki broker silakan daftar terlebih dahulu di bawah</p>
-                <div class="space-y-3">
-                    <a href="https://one.exnessonelink.com/boarding/sign-up/a/l2k5lrudb5" target="_blank" class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold py-3 px-4 rounded-xl transition duration-300 shadow-lg">
-                        <i class="fa-solid fa-chart-line mr-2"></i> Daftar Broker EXNESS
-                    </a>
-                    <a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=30518468" target="_blank" class="flex items-center justify-center w-full bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-xl transition duration-300 shadow-lg">
-                        <i class="fa-solid fa-arrow-trend-up mr-2"></i> Daftar Broker HFM
-                    </a>
-                </div>
-            </div>
-
-            <!-- Teks Kontak Admin -->
-            <div class="bg-slate-700/50 rounded-xl p-4 mb-8 border border-slate-600 text-sm text-center">
-                Bagi yang sudah memiliki bisa berpindah mitra silakan hubungin admin <a href="https://t.me/OriginalMelvinn" target="_blank" class="text-blue-400 font-bold hover:underline">@OriginalMelvinn</a>, bilang ingin berpindah mitra claim rebate akan dibantu hingga selesai.
-            </div>
-
-            <!-- Form Section -->
-            <div class="border-t border-slate-700 pt-6">
-                <h2 class="text-lg font-semibold text-white mb-4 text-center">ISI DATA CLAIM REBATE</h2>
-                <p class="text-xs text-slate-400 text-center mb-6">Jika sudah mendaftar, silakan isi data di bawah ini:</p>
-                
-                <!-- Notifikasi Sukses -->
-                <div id="alertSuccess" class="hidden bg-green-500/20 border border-green-500 text-green-400 text-sm p-3 rounded-lg mb-4 text-center">
-                    <i class="fa-solid fa-circle-check mr-1"></i> Data berhasil dikirim ke Admin!
-                </div>
-
-                <form id="rebateForm" onsubmit="kirimTelegram(event)" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">NAMA LENGKAP</label>
-                        <input type="text" id="nama" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Masukkan nama Anda">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">USERNAME TELEGRAM</label>
-                        <input type="text" id="telegram" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="@username">
-                    </div>
-                    
-                    <!-- Pilihan Broker yang Digunakan (Baru) -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">BROKER YANG DIGUNAKAN</label>
-                        <select id="broker" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
-                            <option value="" disabled selected>Pilih Broker</option>
-                            <option value="EXNESS">EXNESS</option>
-                            <option value="HFM">HFM</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">ID AKUN TRADING</label>
-                        <input type="text" id="id_trading" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Contoh: 12345678">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">REBATE AKAN DIKIRIM KE AKUN TRADING</label>
-                        <input type="text" id="id_rebate" required class="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="ID wallet / Akun MT">
-                    </div>
-
-                    <button type="submit" id="btnSubmit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 px-4 rounded-xl transition duration-300 shadow-lg shadow-blue-900/50 mt-4 flex justify-center items-center">
-                        <i class="fa-brands fa-telegram mr-2 text-xl"></i> KIRIM
-                    </button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Script to send form data to Telegram API In Background -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        function kirimTelegram(event) {
-            event.preventDefault(); 
-            
-            // --- PENGATURAN BOT TELEGRAM ---
-            const botToken = '7991708671:AAGsbcvArgiF-8ly4VqZYO3HfL66uxE5UDs'; 
-            const chatId = '1823219328'; 
-            // ---------------------------------------------
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA8C2C',
+                        },
+                        cardBg: '#16161b',
+                        borderCol: '#272730'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            /* Background Gradasi #000000 ke #0a110f */
+            background: linear-gradient(135deg, #000000 0%, #0a110f 100%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA8C2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+        }
+    </style>
+</head>
+<body class="flex flex-col antialiased selection:bg-gold selection:text-black">
 
-            // Mengambil nilai dari form
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-borderCol">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center font-extrabold text-black text-xl shadow-lg">
+                    M
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-sm sm:text-base tracking-wide gold-gradient-text">MELVIN TRADER GOLD REBATE</h1>
+                </div>
+            </div>
+            <a href="#claim" class="px-4 py-2 rounded-xl gold-gradient-bg text-black font-bold text-xs hover:opacity-95 transition shadow-lg">
+                Claim Sekarang
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6 space-y-8">
+
+        <!-- Hero Banner Info -->
+        <div class="text-center space-y-3 py-4">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                Claim Rebate Kalian <span class="gold-gradient-text">Bro!</span>
+            </h2>
+            <p class="text-gray-400 text-sm max-w-lg mx-auto">
+                Ayo dapatkan cashback dan rebate trading mingguan Sekarang Juga bro
+            </p>
+        </div>
+
+        <!-- Info Grid (Statistik / Keunggulan) -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-cardBg border border-borderCol p-5 rounded-2xl text-center space-y-1 hover:border-gold/50 transition">
+                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">100%</div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Transparan</div>
+            </div>
+            <div class="bg-cardBg border border-borderCol p-5 rounded-2xl text-center space-y-1 hover:border-gold/50 transition">
+                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">Mingguan</div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Jadwal Payout</div>
+            </div>
+            <div class="bg-cardBg border border-borderCol p-5 rounded-2xl text-center space-y-1 hover:border-gold/50 transition">
+                <div class="text-xl sm:text-2xl font-extrabold gold-gradient-text">Exness & HFM</div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Broker Utama</div>
+            </div>
+            <div class="bg-cardBg border border-borderCol p-5 rounded-2xl text-center space-y-1 hover:border-gold/50 transition">
+                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">24/7</div>
+                <div class="text-xs text-gray-400 font-medium uppercase tracking-wider">Admin Support</div>
+            </div>
+        </div> 
+        
+        <!-- Alur Claim & Syarat -->
+        <section class="bg-cardBg border border-borderCol rounded-3xl p-6 sm:p-8 space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                <i class="fa-solid fa-list-check text-gold"></i>
+                <span>Langkah-Langkah Claim</span>
+            </h3>
+            <div class="grid sm:grid-cols-4 gap-3 text-xs">
+                <div class="bg-[#121216] p-4 rounded-xl border border-borderCol space-y-1">
+                    <span class="text-gold font-extrabold text-sm">01</span>
+                    <p class="font-semibold text-white">Daftar Akun Trading</p>
+                </div>
+                <div class="bg-[#121216] p-4 rounded-xl border border-borderCol space-y-1">
+                    <span class="text-gold font-extrabold text-sm">02</span>
+                    <p class="font-semibold text-white">Isi Formulir Di Bawah</p>
+                </div>
+                <div class="bg-[#121216] p-4 rounded-xl border border-borderCol space-y-1">
+                    <span class="text-gold font-extrabold text-sm">03</span>
+                    <p class="font-semibold text-white">Masuk Group Telegram</p>
+                </div>
+                <div class="bg-[#121216] p-4 rounded-xl border border-borderCol space-y-1">
+                    <span class="text-gold font-extrabold text-sm">04</span>
+                    <p class="font-semibold text-white">Claim Rebate Mingguan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panduan & Pendaftaran Broker Section -->
+        <section id="broker" class="bg-cardBg border border-borderCol rounded-3xl p-6 sm:p-8 space-y-6">
+            <div class="border-l-4 border-gold pl-4">
+                <h3 class="text-lg font-bold text-white">Belum Mempunyai Akun Broker?</h3>
+                <p class="text-xs text-gray-400 mt-0.5">Buat akun terlebih dahulu melalui link resmi partner di bawah:</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Exness -->
+                <div class="bg-[#121216] border border-borderCol p-5 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-gold px-2 py-0.5 rounded bg-gold/10">Broker 1</span>
+                        <h4 class="font-bold text-base text-white pt-1">DAFTAR BROKER EXNESS</h4>
+                    </div>
+                    <a href="https://one.exnessonelink.com/boarding/sign-up/a/l2k5lrudb5" target="_blank" class="w-full py-3 rounded-xl gold-gradient-bg text-black font-bold text-xs text-center hover:opacity-90 transition shadow-md flex items-center justify-center space-x-2">
+                        <span>Daftar Exness Sekarang</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- HFM -->
+                <div class="bg-[#121216] border border-borderCol p-5 rounded-2xl flex flex-col justify-between space-y-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider font-bold text-gold px-2 py-0.5 rounded bg-gold/10">Broker 2</span>
+                        <h4 class="font-bold text-base text-white pt-1">DAFTAR BROKER HFM</h4>
+                    </div>
+                    <a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=30518468" target="_blank" class="w-full py-3 rounded-xl gold-gradient-bg text-black font-bold text-xs text-center hover:opacity-90 transition shadow-md flex items-center justify-center space-x-2">
+                        <span>Daftar HFM Sekarang</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pindah Mitra Info -->
+            <div class="bg-gold/5 border border-gold/20 p-4 rounded-2xl text-xs space-y-2 text-gray-300">
+                <p class="font-bold text-gold flex items-center space-x-2">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Sudah Mempunyai Akun Trading di Broker Tersebut?</span>
+                </p>
+                <p>Bisa Berpindah Mitra Broku! Kalian boleh contact ke Admin <a href="https://t.me/OriginalMelvinn" target="_blank" class="text-gold font-bold underline">@OriginalMelvin</a> dengan subjek:</p>
+                <div class="bg-black/40 p-3 rounded-xl border border-borderCol text-gold font-semibold select-all">
+                    Bang Ingin Berpindah Mitra Claim Rebate
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Claim Section -->
+        <section id="claim" class="bg-cardBg border border-borderCol rounded-3xl p-6 sm:p-8 space-y-6 glow-gold">
+            <div class="text-center space-y-2">
+                <h3 class="text-xl font-extrabold text-white">ISI FORMULIR CLAIM REBATE</h3>
+                <p class="text-xs text-gray-400">Pastikan formulir yang dikirim sudah benar</p>
+            </div>
+
+            <form id="claimForm" onsubmit="sendToTelegram(event)" class="space-y-4 text-xs">
+                <div class="space-y-1.5">
+                    <label class="block font-semibold text-gray-300">NAMA LENGKAP :</label>
+                    <input type="text" id="nama" required class="w-full bg-[#121216] border border-borderCol rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition" placeholder="Masukkan nama lengkap">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="block font-semibold text-gray-300">USERNAME TELEGRAM :</label>
+                    <input type="text" id="telegram" required class="w-full bg-[#121216] border border-borderCol rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition" placeholder="@username_telegram">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="block font-semibold text-gray-300">BROKER YANG DI GUNAKAN :</label>
+                    <select id="brokerType" required class="w-full bg-[#121216] border border-borderCol rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition">
+                        <option value="" disabled selected>Pilih Broker</option>
+                        <option value="Exness">Exness</option>
+                        <option value="HFM">HFM</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="block font-semibold text-gray-300">ID TRADING :</label>
+                    <input type="text" id="idTrading" required class="w-full bg-[#121216] border border-borderCol rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition" placeholder="Nomor ID Akun Trading">
+                </div>
+
+                <div class="space-y-1.5">
+                    <label class="block font-semibold text-gray-300">REBATE AKAN DI KIRIM KE ID :</label>
+                    <input type="text" id="idRebate" required class="w-full bg-[#121216] border border-borderCol rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition" placeholder="ID Tujuan Pengiriman Rebate">
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl gold-gradient-bg text-black font-extrabold text-sm uppercase tracking-wider hover:opacity-95 transition shadow-lg mt-2">
+                    KIRIM
+                </button>
+            </form>
+
+            <div id="successMessage" class="hidden bg-green-500/10 border border-green-500/30 text-green-400 p-4 rounded-2xl text-center space-y-1">
+                <p class="font-bold"><i class="fa-solid fa-circle-check"></i> Berhasil dikirim</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-borderCol mt-12 py-8 bg-black/40 text-center text-xs text-gray-500 space-y-4">
+        <div class="flex justify-center space-x-6">
+            <a href="mailto:melvintradergold@gmail.com" class="hover:text-gold transition"><i class="fa-solid fa-envelope text-sm"></i> Email</a>
+            <a href="https://instagram.com/melvinnboat" target="_blank" class="hover:text-gold transition"><i class="fa-brands fa-instagram text-sm"></i> Instagram</a>
+            <a href="https://tiktok.com/@melvintradergold" target="_blank" class="hover:text-gold transition"><i class="fa-brands fa-tiktok text-sm"></i> Tiktok</a>
+            <a href="https://t.me/OriginalMelvinn" target="_blank" class="hover:text-gold transition"><i class="fa-brands fa-telegram text-sm"></i> Telegram</a>
+        </div>
+        <p>&copy; 2026 Melvin Trader Gold Rebate.</p>
+    </footer>
+
+    <script>
+        // TOKEN BOT TELEGRAM ANDA
+        const BOT_TOKEN = "8781085563:AAEcXSkEslvHWW5zODnaqTu7wUCLIarqfgY";
+        
+        // Chat ID Pribadi Anda
+        const CHAT_ID = "1823219328"; 
+
+        function sendToTelegram(event) {
+            event.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            const form = document.getElementById('claimForm');
+            const successMsg = document.getElementById('successMessage');
+
+            btn.innerText = "MENGIRIM...";
+            btn.disabled = true;
+
             const nama = document.getElementById('nama').value;
             const telegram = document.getElementById('telegram').value;
-            const broker = document.getElementById('broker').value;
-            const id_trading = document.getElementById('id_trading').value;
-            const id_rebate = document.getElementById('id_rebate').value;
+            const broker = document.getElementById('brokerType').value;
+            const idTrading = document.getElementById('idTrading').value;
+            const idRebate = document.getElementById('idRebate').value;
 
-            // Format pesan (Menambahkan Broker)
-            const text = `*FORM KLAIM REBATE BARU*%0A%0ANama: ${nama}%0AUsername Telegram: ${telegram}%0ABroker: ${broker}%0AId Acount Trading: ${id_trading}%0ARebate Dikirim Ke Id: ${id_rebate}`;
+            const message = ` *CLAIM REBATE BARU - MELVIN TRADER GOLD* \n\n` +
+                            ` *NAMA LENGKAP :* ${nama}\n` +
+                            ` *USERNAME TELEGRAM :* ${telegram}\n` +
+                            ` *BROKER:* ${broker}\n` +
+                            ` *ID TRADING :* ${idTrading}\n` +
+                            ` *REBATE DIKIRIM KE ID :* ${idRebate}`;
 
-            // Ubah tombol jadi loading
-            const btnSubmit = document.getElementById('btnSubmit');
-            const alertSuccess = document.getElementById('alertSuccess');
-            btnSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2 text-xl"></i> Mengirim...';
-            btnSubmit.disabled = true;
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-            // URL API Telegram
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}&parse_mode=Markdown`;
-
-            // Proses kirim di latar belakang
-            fetch(url, { method: 'GET' })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alertSuccess.classList.remove('hidden');
-                        document.getElementById('rebateForm').reset();
-                    } else {
-                        alert("Gagal mengirim pesan: " + data.description + "\n(Pastikan akun @OriginalMelvinn sudah klik START di bot tersebut)");
-                    }
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
                 })
-                .catch(error => {
-                    alert("Terjadi kesalahan jaringan.");
-                    console.error('Error:', error);
-                })
-                .finally(() => {
-                    btnSubmit.innerHTML = '<i class="fa-brands fa-telegram mr-2 text-xl"></i> KIRIM';
-                    btnSubmit.disabled = false;
-                    
-                    setTimeout(() => {
-                        alertSuccess.classList.add('hidden');
-                    }, 5000);
-                });
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    form.reset();
+                    btn.style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                } else {
+                    alert('Gagal mengirim pesan ke Telegram. Cek Chat ID atau Token Bot Anda.');
+                    btn.innerText = "KIRIM";
+                    btn.disabled = false;
+                    console.error("Telegram API Error:", data);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan koneksi.');
+                btn.innerText = "KIRIM";
+                btn.disabled = false;
+            });
         }
     </script>
 </body>
